@@ -141,5 +141,5 @@ python manage.py test
 - Django 5.2
 - Django REST Framework
 - SimpleJWT
-- SQLite (по умолчанию) / PostgreSQL (опционально)
+- PostgreSQL (по умолчанию) / SQLite (опционально)
 - Python 3.8+
