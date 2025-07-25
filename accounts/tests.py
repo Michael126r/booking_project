@@ -164,3 +164,12 @@ class UserAuthTest(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn('access', response.data)
         self.assertIn('refresh', response.data)
+
+    def test_login_get_method_info(self):
+        """Тест информационного GET запроса к /api/login/"""
+        url = reverse('login')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+        self.assertIn('error', response.data)
+        self.assertIn('usage', response.data)
+        self.assertEqual(response.data['usage']['method'], 'POST')

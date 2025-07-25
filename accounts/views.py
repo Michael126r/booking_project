@@ -30,6 +30,26 @@ class CustomTokenObtainPairView(TokenObtainPairView):
 class LoginView(APIView):
     permission_classes = [AllowAny]
     
+    def get(self, request):
+        """Возвращает информацию о том, как использовать login endpoint"""
+        return Response({
+            'error': 'Method GET not allowed',
+            'message': 'Используйте POST запрос для входа в систему',
+            'usage': {
+                'method': 'POST',
+                'url': '/api/login/',
+                'content_type': 'application/json',
+                'body': {
+                    'email': 'your-email@example.com',
+                    'password': 'your-password'
+                },
+                'example': {
+                    'email': 'test@example.com',
+                    'password': 'testpass123'
+                }
+            }
+        }, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+    
     def post(self, request):
         email = request.data.get('email')
         password = request.data.get('password')
