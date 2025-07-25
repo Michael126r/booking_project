@@ -14,7 +14,7 @@ class RoomModelTest(TestCase):
         self.room = Room.objects.create(
             name='Conference Room',
             capacity=10,
-            location='2э этаж'
+            location='2й этаж'
         )
 
     def test_room_creation(self):
@@ -30,7 +30,7 @@ class BookingModelTest(TestCase):
         self.room = Room.objects.create(
             name='Conference Room',
             capacity=10,
-            location='2э этаж'
+            location='2й этаж'
         )
         self.user = User.objects.create_user(
             username='john_doe',
@@ -56,7 +56,7 @@ class BookingAPITest(TestCase):
         self.room = Room.objects.create(
             name='Conference Room',
             capacity=10,
-            location='2э этаж'
+            location='2й этаж'
         )
         self.user = User.objects.create_user(
             username='john_doe',

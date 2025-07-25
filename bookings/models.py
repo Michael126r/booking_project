@@ -27,7 +27,7 @@ class Booking(models.Model):
         PENDING = 'pending', 'Ожидает подтверждения'
         CONFIRMED = 'confirmed', 'Подтверждено'
         CANCELLED = 'cancelled', 'Отменено'
-    
+    id = models.AutoField(primary_key=True)
     room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name='bookings')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
     start_time = models.DateTimeField(verbose_name="Время начала")
